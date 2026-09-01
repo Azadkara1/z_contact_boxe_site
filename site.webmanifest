@@ -1,0 +1,13 @@
+{
+  "name": "Z-Contact Boxe, K1, Préparation Physique",
+  "short_name": "Z-Contact",
+  "description": "Club de kickboxing et K1 à Vénissieux — cours collectifs, individuels et préparation physique.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#13171E",
+  "theme_color": "#13171E",
+  "lang": "fr",
+  "icons": [
+    { "src": "images/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
