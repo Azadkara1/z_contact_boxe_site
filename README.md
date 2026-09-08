@@ -34,7 +34,7 @@ z-contact-boxe/
 | `#haut`       | En-tête / logo                                          |
 | *(hero)*      | Accroche, CTA téléphone/réservation, badge avis Google   |
 | `#club`       | Présentation du club et de l'entraîneur                 |
-| `#cours`      | Les 3 formats de cours (collectif, individuel, prépa)    |
+| `#cours`      | Les 3 formats (collectif, individuel, accès libre licenciés) |
 | `#tarifs`     | Grille tarifaire                                         |
 | `#avis`       | Note Google (5,0/5) + 3 témoignages                      |
 | `#reserver`   | Contacts directs (tél / WhatsApp / adresse) + formulaire |
@@ -58,8 +58,8 @@ python -m http.server 8000
 
 Le formulaire est validé et envoyé en JavaScript (`js/main.js`) :
 
-- validation en direct (nom, format de téléphone français, e-mail si renseigné, choix du cours,
-  case RGPD) avec message d'erreur sous chaque champ, sans rechargement de page ;
+- validation en direct (nom, format de téléphone français, e-mail si renseigné, choix du cours)
+  avec message d'erreur sous chaque champ, sans rechargement de page ;
 - envoi en AJAX vers **FormSubmit** (`https://formsubmit.co/ajax/contact@z-contact-boxe.fr`), un
   service tiers gratuit qui relaie les soumissions par e-mail sans backend ;
 - message "Merci, votre demande a bien été envoyée" affiché sur place en cas de succès, message
@@ -67,11 +67,39 @@ Le formulaire est validé et envoyé en JavaScript (`js/main.js`) :
 
 Un champ honeypot (`_honey`) filtre une partie du spam automatisé.
 
+Chaque soumission arrive comme un e-mail dans la boîte `contact@z-contact-boxe.fr` (aucune base de
+données, aucun tableau de bord — FormSubmit ne fait que relayer). Voir la section
+**Où va la demande ?** plus bas pour ce que ça implique concrètement.
+
+Pas de case RGPD/consentement dans le formulaire — décision du client (2026-09-08) : la personne
+qui remplit le formulaire est réputée d'accord pour être recontactée sur sa propre demande. C'est
+défendable juridiquement (base légale "mesures précontractuelles" / intérêt légitime à répondre à
+une demande de contact spontanée), tant que le formulaire ne sert qu'à ça et pas à de la
+prospection ultérieure — auquel cas un consentement séparé redeviendrait nécessaire.
+
 ⚠️ **FormSubmit n'est pas encore activé.** Testé le 2026-09-01 : `contact@z-contact-boxe.fr`
 reçoit une réponse `success:false` avec le message *"This form needs Activation"* — un e-mail
 d'activation a dû être envoyé à cette adresse lors du premier test. Il faut cliquer sur le lien
 "Activate Form" qu'il contient, sinon **aucune demande de réservation n'arrive jamais**, même si
 le site affichera un message d'erreur clair au visiteur (pas un faux succès).
+
+## Où va la demande ?
+
+Le formulaire n'a ni base de données ni back-office : chaque soumission part directement comme un
+**e-mail** vers l'adresse configurée dans `js/main.js` et `index.html`, actuellement
+`contact@z-contact-boxe.fr`. Concrètement, pour que ça fonctionne, il faut :
+
+1. **Une vraie boîte mail qui existe et que quelqu'un consulte** — soit `contact@z-contact-boxe.fr`
+   si le nom de domaine a un hébergement e-mail configuré (à vérifier auprès de l'hébergeur du
+   domaine, ex. OVH), soit une adresse existante du gérant (Gmail ou autre) si c'est plus simple.
+   Rien à "créer" côté site : FormSubmit ne fait que relayer vers l'adresse qu'on lui donne.
+2. **Activer FormSubmit sur cette adresse** (une seule fois) : au premier envoi réel, FormSubmit
+   lui adresse un e-mail avec un lien "Activate Form" à cliquer — sans ce clic, les demandes
+   suivantes ne sont jamais délivrées. Voir l'avertissement dans la section Formulaire ci-dessus.
+
+Si l'adresse finale change (ex. le gérant préfère recevoir les demandes sur son Gmail plutôt que
+sur `contact@z-contact-boxe.fr`), il faut la mettre à jour à deux endroits : l'attribut `action`
+du `<form>` dans `index.html`, et l'URL du `fetch` dans `js/main.js`.
 
 ## SEO / données structurées
 
@@ -128,10 +156,10 @@ Constats classés par impact, pas des demandes — à discuter avant implémenta
 
 **Pas urgent**
 6. Pas d'outil de mesure d'audience — en cours de décision, voir section Suivi du trafic ci-dessous.
-7. Les horaires structurés (JSON-LD) ne couvrent que le collectif lundi/jeudi ; les cours
-   individuels "sur rendez-vous" n'ont pas d'équivalent schema.org (normal, pas d'horaire fixe).
 
 Résolu le 2026-09-01 : `robots.txt`, `sitemap.xml`, page 404 personnalisée, `site.webmanifest`.
+Résolu le 2026-09-08 : horaires et tarifs à jour partout (visible + JSON-LD), section "accès libre
+licenciés" (mardi/mercredi) ajoutée, case de consentement retirée du formulaire.
 
 ## Suivi du trafic (à décider)
 
@@ -164,3 +192,13 @@ Je peux implémenter l'un ou l'autre dès que le choix est fait.
   avec son champ. Renommé en `id="champ-cours"` sur le select.
 - **SEO/technique** : `robots.txt`, `sitemap.xml`, page `404.html`, `site.webmanifest` +
   `.htaccess` ajoutés.
+
+## Corrections apportées (2026-09-08)
+
+- **Tarifs et horaires** : le client a mis à jour les prix (450 €/an, 40 €/séance individuelle),
+  les horaires des cours collectifs (20h-22h) et ajouté l'accès libre licenciés (mardi/mercredi,
+  18h-21h) directement dans `index.html`. J'ai synchronisé le JSON-LD (`openingHoursSpecification`,
+  `hasOfferCatalog`), qui référençait encore les anciens prix (300 €/30 €) et horaires
+  (19h-20h30) — sans ça, Google aurait continué d'indexer des informations obsolètes.
+- **Formulaire** : case de consentement RGPD retirée (`index.html`, `js/main.js`, `css/style.css`)
+  à la demande du client. Testé : la soumission fonctionne toujours sans elle.

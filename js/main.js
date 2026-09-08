@@ -67,13 +67,6 @@ if (form) {
       definirErreur('cours', '');
     }
 
-    if (!form.consentement.checked) {
-      definirErreur('consentement', 'Merci d’accepter d’être recontacté.');
-      ok = false;
-    } else {
-      definirErreur('consentement', '');
-    }
-
     return ok;
   };
 

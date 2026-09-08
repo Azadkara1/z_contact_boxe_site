@@ -200,8 +200,6 @@ p{ margin:0 0 1.1em; max-width:62ch; }
 .form input:focus, .form select:focus, .form textarea:focus{ border-color:var(--laiton); }
 .form [aria-invalid="true"]{ border-color:var(--rouge); }
 .err{ color:#FF8A9B; font-size:.83rem; margin:.35rem 0 0; min-height:0; }
-.rgpd{ display:flex !important; align-items:flex-start; gap:.6rem; font-weight:400 !important; font-size:.88rem !important; color:#A9B0BA !important; margin:.4rem 0 1.2rem; }
-.rgpd input{ width:auto !important; margin-top:.2rem; accent-color:var(--rouge); }
 .honey{ position:absolute; left:-9999px; }
 .form__statut{ margin:.9rem 0 0; font-size:.92rem; color:var(--laiton); }
 .form__statut.ok{ color:#7BD88F; }
