@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.z-contact-boxe.fr/sitemap.xml
+Sitemap: https://z-contact-boxe-site.vercel.app/sitemap.xml

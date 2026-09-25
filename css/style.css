@@ -11,7 +11,7 @@
   --blanc:     #FBFBF9;
   --rouge:     #C8102E;
   --laiton:    #C79A2E;
-  --gris:      #6E7480;
+  --gris:      #5C6270;
 
   --max: 1180px;
   --pad: clamp(1.15rem, 5vw, 3rem);
@@ -190,7 +190,7 @@ p{ margin:0 0 1.1em; max-width:62ch; }
 .champ{ margin-bottom:1.1rem; }
 .champ-duo{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
 .form label{ display:block; font-size:.9rem; font-weight:600; color:#D5D8DC; margin-bottom:.4rem; }
-.opt{ font-weight:400; color:#7E8794; }
+.opt{ font-weight:400; color:#A9B0BA; }
 .form input, .form select, .form textarea{
   width:100%; font:inherit; font-size:1rem; color:var(--blanc);
   background:#0E1218; border:1px solid #333A45; border-radius:2px; padding:.75rem .85rem;
@@ -211,7 +211,7 @@ address{ font-style:normal; margin-bottom:1rem; }
 .horaires th, .horaires td{ text-align:left; padding:.55rem 0; border-bottom:1px solid rgba(19,23,30,.12); font-weight:400; }
 .horaires th{ font-weight:600; }
 .horaires td{ text-align:right; color:var(--gris); }
-.carte iframe{ width:100%; height:min(430px,60vh); border-radius:2px; }
+.carte iframe{ width:100%; height:min(430px,60vh); border-radius:2px; border:0; }
 
 /* ---------------- FAQ ---------------- */
 details{ border-bottom:1px solid rgba(255,255,255,.15); padding:1rem 0; }

@@ -92,7 +92,7 @@ if (form) {
 
     try {
       const donnees = new FormData(form);
-      const reponse = await fetch('https://formsubmit.co/ajax/contact@z-contact-boxe.fr', {
+      const reponse = await fetch('https://formsubmit.co/ajax/z.contact.boxing@gmail.com', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: donnees
