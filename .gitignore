@@ -1,0 +1,17 @@
+# Secrets — ne doivent jamais être commités sur un site statique
+.env
+.env.*
+*.pem
+*.key
+
+# Dépendances locales (aucune actuellement, site sans build)
+node_modules/
+
+# Fichiers système / éditeur
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+
+# Config locale Vercel CLI
+.vercel/
