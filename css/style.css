@@ -100,8 +100,11 @@ p{ margin:0 0 1.1em; max-width:62ch; }
 .hero h1{ text-wrap:balance; }
 .hero__lede{ font-size:1.1rem; color:#C6CAD1; }
 .hero__note{ font-size:.9rem; color:#8E96A2; margin:0; }
+.photo-stack{ display:flex; flex-direction:column; gap:1.8rem; }
 .hero__img{ margin:0; position:relative; }
 .hero__img img{ width:100%; aspect-ratio:4/3; border-radius:2px; }
+.hero__img--vertical{ width:70%; margin-inline:auto; }
+.hero__img--vertical img{ aspect-ratio:3/4; object-position:center top; }
 .hero__img figcaption{ font-size:.8rem; color:#8E96A2; margin-top:.55rem; }
 
 .etoiles{ color:var(--laiton); letter-spacing:.12em; font-size:1rem; }
@@ -135,6 +138,7 @@ p{ margin:0 0 1.1em; max-width:62ch; }
 .coach h3{ color:var(--rouge); }
 .portrait{ margin:0; }
 .portrait img{ width:100%; aspect-ratio:3/2; object-position:center 30%; border-radius:2px; }
+.portrait--vertical img{ aspect-ratio:3/4; object-position:center top; }
 .portrait figcaption{ font-size:.8rem; color:var(--gris); margin-top:.55rem; }
 
 /* ---------------- Cours ---------------- */
@@ -157,6 +161,7 @@ p{ margin:0 0 1.1em; max-width:62ch; }
   margin:0; white-space:nowrap; flex-shrink:0;
 }
 .ligne__prix span{ font-family:var(--t-texte); font-weight:400; font-size:.82rem; color:var(--gris); display:block; text-align:right; }
+.ligne__prix .ligne__mensuel{ font-size:.72rem; margin-top:.2rem; }
 .ligne--phare{ background:rgba(200,16,46,.05); padding-inline:1rem; margin-inline:-1rem; }
 .ligne--phare .ligne__prix{ color:var(--rouge); }
 .tarifs__note{ font-size:.88rem; color:var(--gris); margin-top:1.3rem; }
@@ -244,7 +249,7 @@ details p{ color:#A9B0BA; margin:.8rem 0 0; }
    ========================================================= */
 @media (max-width:900px){
   .hero__in, .grid-2, .grid-2--form{ grid-template-columns:1fr; }
-  .hero__img{ order:-1; }
+  .photo-stack{ order:-1; }
   .hero__img img{ aspect-ratio:16/10; }
   .portrait img{ aspect-ratio:16/10; }
   .bandeau{ grid-template-columns:1fr 1fr; }
@@ -266,6 +271,7 @@ details p{ color:#A9B0BA; margin:.8rem 0 0; }
 
   .ligne{ flex-direction:column; align-items:flex-start; gap:.4rem; }
   .ligne__prix span{ display:inline; text-align:left; }
+  .ligne__prix .ligne__mensuel{ display:block; }
   .champ-duo{ grid-template-columns:1fr; gap:0; }
   .mark__txt em{ display:none; }
 
