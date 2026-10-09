@@ -248,7 +248,6 @@ details p{ color:#A9B0BA; margin:.8rem 0 0; }
    ========================================================= */
 @media (max-width:900px){
   .hero__in, .grid-2, .grid-2--form{ grid-template-columns:1fr; }
-  .photo-stack{ order:-1; }
   .hero__img img{ aspect-ratio:16/10; }
   .portrait img{ aspect-ratio:16/10; }
   .bandeau{ grid-template-columns:1fr 1fr; }
