@@ -65,7 +65,8 @@
   ],
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Thursday"], "opens": "20:00", "closes": "22:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday"], "opens": "18:00", "closes": "21:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday","Wednesday"], "opens": "18:00", "closes": "21:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday"], "opens": "19:00", "closes": "20:30" }
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -152,6 +153,7 @@
     <nav class="nav" id="nav" aria-label="Navigation principale">
       <a href="#club">Le club</a>
       <a href="#cours">Les cours</a>
+      <a href="#planning">Planning</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#avis">Avis</a>
       <a href="#infos">Adresse &amp; Horaires</a>
@@ -211,8 +213,8 @@
     <ul class="bandeau">
       <li><strong>+ 30 ans</strong><span>d'expérience du ring</span></li>
       <li><strong>Lundi &amp; Jeudi</strong><span>cours collectifs</span></li>
-      <li><strong>Tout le monde</strong><span>est accueilli, sans niveau requis</span></li>
-      <li><strong>Dès 16 ans</strong><span>club ouvert aux ados et aux adultes</span></li>
+      <li><strong>Tout le monde</strong><span>est accueilli, sans niveau requis (dès 16 ans)</span></li>
+      <li><strong>Vendredi</strong><span>cours 100&nbsp;% féminin</span></li>
       <li><strong>Accès libre licenciés</strong><span>Accès a la salle (Mardi &amp; Mercredi)</span></li>
       <li><strong>Musculation</strong><span>à l'étage, accès inclus</span></li>
     </ul>
@@ -266,7 +268,7 @@
   <section class="sec sec--sombre" id="cours">
     <div class="wrap">
       <h2>Les cours</h2>
-      <p class="sec__lede">Trois façons de s'entraîner, dans la même salle, avec le même encadrement.</p>
+      <p class="sec__lede">Plusieurs façons de s'entraîner, dans la même salle, avec le même encadrement.</p>
 
       <div class="cours">
         <article>
@@ -295,7 +297,52 @@
           </p>
           <p class="cours__meta">Mardi et mercredi · 18h00 à 21h00 </p>
         </article>
+        <article>
+          <h3>Cours 100&nbsp;% féminin</h3>
+          <p>
+            Un cours réservé aux femmes, dans une ambiance détendue, pour apprendre ou progresser en
+            kickboxing sans pression. Contactez le club pour en savoir plus et réserver votre place.
+          </p>
+          <p class="cours__meta">Vendredi · 19h00 à 20h30</p>
+        </article>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= PLANNING ================= -->
+  <section class="sec sec--clair" id="planning">
+    <div class="wrap">
+      <h2>Planning de la semaine</h2>
+      <p class="sec__lede">Les créneaux du lundi au vendredi, en un coup d'œil.</p>
+
+      <div class="planning">
+        <div class="planning__jour">
+          <h3>Lundi</h3>
+          <p class="planning__cours">Kickboxing &amp; K1 — collectif</p>
+          <p class="planning__heure">20h00 – 22h00</p>
+        </div>
+        <div class="planning__jour">
+          <h3>Mardi</h3>
+          <p class="planning__cours">Accès libre licenciés</p>
+          <p class="planning__heure">18h00 – 21h00</p>
+        </div>
+        <div class="planning__jour">
+          <h3>Mercredi</h3>
+          <p class="planning__cours">Accès libre licenciés</p>
+          <p class="planning__heure">18h00 – 21h00</p>
+        </div>
+        <div class="planning__jour">
+          <h3>Jeudi</h3>
+          <p class="planning__cours">Kickboxing &amp; K1 — collectif</p>
+          <p class="planning__heure">20h00 – 22h00</p>
+        </div>
+        <div class="planning__jour">
+          <h3>Vendredi</h3>
+          <p class="planning__cours">Cours 100&nbsp;% féminin</p>
+          <p class="planning__heure">19h00 – 20h30</p>
+        </div>
+      </div>
+      <p class="tarifs__note">Les cours individuels se calent selon vos disponibilités, en dehors de ce planning — appelez pour convenir d'un créneau.</p>
     </div>
   </section>
 
